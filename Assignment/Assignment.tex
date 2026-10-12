@@ -1,0 +1,108 @@
+%LTeX: language=en-GB
+\documentclass[a4paper,12pt]{article}
+
+% ---------- Page setup ----------
+\usepackage[a4paper,margin=2.5cm,headheight=15pt]{geometry}
+\usepackage{fontspec, xcolor}
+\setmainfont{LiterationSerif Nerd Font}
+\setsansfont{LiterationSans Nerd Font}
+\setmonofont{LiterationMono Nerd Font}[Scale=MatchLowercase]
+\setlength{\parindent}{0pt}
+\definecolor{codebg}{gray}{0.9}
+\usepackage[british]{babel}
+\emergencystretch 1.5em
+
+% ---------- Useful packages ----------
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{makecell}
+\renewcommand{\theadfont}{\bfseries\normalsize}
+\usepackage{amsmath,amssymb}
+\usepackage{upquote}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{minted}
+\setminted{fontsize=\normalsize, baselinestretch=1, bgcolor=codebg}
+\usepackage{hyperref}
+\usepackage{citation-style-language}
+%\cslsetup{style = ieee-wrexham_v7}
+%\addbibresource{references.bib}
+
+% ---------- Custom commands -------------
+\makeatletter
+\newcommand\code{%
+  \begingroup
+  \catcode`\_=12 \catcode`\$=12 \catcode`\#=12
+  \catcode`\%=12 \catcode`\&=12 \catcode`\^=12
+  \code@i
+}
+\newcommand\code@i[1]{%
+  \endgroup
+  \setlength{\fboxsep}{0.5pt}%
+  \mbox{\colorbox{codebg}{\normalsize\texttt{#1}}}%
+}
+\makeatother
+
+% ---------- Document variables ----------
+\newcommand{\myname}{Christoph Schabik, Sven Ziegler, Maximilian Leidl, Alina Pollich}
+\newcommand{\mystudentid}{S26007467, S26008938, S26010157, S26008939}
+\newcommand{\mytitle}{Assignment}
+\newcommand{\mycourse}{Systems Engineering and Project Management / COM569}
+\newcommand{\mysupervisor}{Daren Morris, Jose Bindu}
+\newcommand{\myuniversity}{Wrexham University}
+\newcommand{\myfaculty}{Cyber and Computing}
+
+% ---------- Header/Footer ----------
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\leftmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\onehalfspacing
+
+% ---------- Title page info ----------
+\title{\mytitle}
+\author{\myname \\ Student ID: \mystudentid}
+\date{\today}
+
+\begin{document}
+
+% ---------- Title Page ----------
+\begin{titlepage}
+	\centering
+	\vspace*{2cm}
+	{\Large \myuniversity\par}
+	\vspace{0.5cm}
+	{\large \myfaculty\par}
+	\vspace{2cm}
+	{\Huge\bfseries \mytitle\par}
+	\vspace{1.5cm}
+	{\large \mycourse\par}
+	\vspace{2cm}
+	{\large \textbf{Author:} \myname\par}
+	{\large \textbf{Student IDs:} \mystudentid\par}
+	{\large \textbf{Supervisors:} \mysupervisor\par}
+	\vfill
+	{\large \today\par}
+\end{titlepage}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+% ---------- Content ----------
+\section{Introduction}
+
+\begingroup
+\setstretch{1.0}
+\hbadness=9999
+\printbibliography
+\endgroup
+
+\end{document}
