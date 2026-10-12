@@ -1,5 +1,62 @@
 # MEETINGS LOGBOOK
 
+## 12.10.26 (14:00–16:45)
+
+**Minutes taker:** Alina
+
+**Attendees:** Alina, Sven, Maxi, Christoph
+
+#### Company Product change 
+
+- Change topic from Coffee to beer
+- Customer goes to a bar and can scan a QR Code where the website gets open and form can be filled
+  - Form Fields per Beer (Dropdown Menu with Beers the Bar/Pub told us they sell), form block can be duplicated for reuse: choose a second beer to review
+- Customer gets a Beer Voucher generated in a linked table between customer and pub/bar since only one voucher can be used per facility
+- Change Database add a boolean if customer got their beer and if true, no e-mail will be received if free beer has already been received (if form is redundantly filled out and uploaded)
+- Customer sends form -> database generates voucher -> generated Voucher get send to confirmation page (of sent form) instantly and generates a fitting QR Code (functioning as voucher)
+  
+ _**New Mission:**_
+
+- We turn every beer drinker's opinion into insight for the on-trade, because great beer starts with honest feedback.
+
+_**New Vision:**_
+
+- Better beer, together.
+
+#### Tools
+
+- kanbanboard on github was created and filled with estimated tasks for the final formulated assignment document
+  
+#### Website
+
+- needs Login, User Interface and Registr    _**New Mission:**_
+
+  - We turn every beer drinker's opinion into insight for the on-trade, because great beer starts with honest feedback.
+
+    _**New Vision:**_
+
+    - Better beer, together.ation page
+  - User Interface enables input and deletion of beer names for the drop down
+  - Business Name, Password, business e-Mail (login), Location
+    - one per company location if it is a chain
+
+#### Diagramms
+
+- creation of a use case diagram
+
+#### Roles
+
+##### _Clarification of Role Interfaces:_
+
+- Sven: Overall
+- Maxi: Frontent Rest-API specific
+
+##### _New Role:_
+
+- Project Security & Data Protection Officer: 
+
+
+
 ## 05.10.26 (14:00–16:00)
 
 → Conceptualisation of the Company Product and Company Goal
