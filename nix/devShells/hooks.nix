@@ -13,4 +13,12 @@
       write = true;
     };
   };
+  gen-pdf = {
+    enable = true;
+    name = "gen-pdf";
+    entry = "latexmk -cd -lualatex";
+    language = "system";
+    pass_filenames = true;
+    files = "\\.tex$";
+  };
 }

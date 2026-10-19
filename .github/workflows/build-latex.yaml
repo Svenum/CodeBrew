@@ -1,0 +1,35 @@
+name: Build LaTeX Document
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: cachix/install-nix-action@v31
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - run: nix develop -c pre-commit run --all
+
+      - uses: actions/upload-artifact@v7
+        id: upload
+        with:
+          path: Assignment/Assignment.pdf
+          archive: false
+
+      - name: Comment on PR with PDF
+        uses: mshick/add-pr-comment@v3
+        with:
+          message: |
+            ### 📄 PDF Preview
+          attach-path: Assignment/Assignment.pdf
+          attach-name: preview
+          attach-text: "📎 [Download PDF](${{ steps.upload.outputs.artifact-url }})"

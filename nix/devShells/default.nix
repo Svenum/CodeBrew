@@ -11,6 +11,9 @@ pkgs.mkShell {
     ${shellHook}
     bun i
 
+    export OSFONTDIR=${pkgs.nerd-fonts.liberation}/share/fonts
+    luaotfload-tool -u
+
     # Just start zsh if it's an interactive shell
     if [[ $- == *i* ]]; then
       exec zsh
