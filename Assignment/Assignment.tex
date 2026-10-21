@@ -16,6 +16,7 @@
 \usepackage{microtype}
 \usepackage{float}
 \usepackage{graphicx}
+\graphicspath{{./images/}}
 \usepackage{tabularx}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -98,6 +99,36 @@
 
 % ---------- Content ----------
 \section{Introduction}
+
+\section{Project Charter}
+\subsection{Scope}
+This Project aims to create the MVP (Minimal Valuable Product) of CodeBrew, which includes the features \textbf{company registration}, \textbf{company login}, \textbf{form creation}, \textbf{display of statistics}, \textbf{customer can fill out the form} and the \textbf{voucher generation}.
+Consequently, are all resources included, which are needed to archive the functionality of these features (database, REST-API, webpage, ...).
+This MLP is also described by the following use case diagram \autoref{fig:use_case}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{use_case.drawio.png}
+	\caption{Use case diagram}
+	\label{fig:use_case}
+
+\end{figure}
+
+\subsection{Constraints}
+The form which can be created by a company is at the start just a \textbf{static template} where the different beers, which the on-trade company sells, can be selected.
+Which beers are selectable is also static. Beers can only be added by the CodeBrew team.
+
+\subsection{Initial resources}
+The project's human resources are 2 backend developer, 1 database engineer, 1 frontend developer, which is additionally the project owner.
+Every developer has access to one personal computer on which they will develop.
+GitHub was chosen as centralised git provider and kanban host (GitHub Project).
+
+\subsection{Authority of the project manager}
+The project management is part of the job of the project owner. The project manager will be supported by the project team.
+Every decision in terms of feature changes or time extensions  has to be approved by the project owner.
+Tasks on the kanbanboard are created by the project manager collaborative with the project team.
+The team is not allowed to create tasks without the knowledge of the project owner.
+
 
 \begingroup
 \setstretch{1.0}
