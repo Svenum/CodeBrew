@@ -30,8 +30,8 @@
 \setminted{fontsize=\normalsize, baselinestretch=1, bgcolor=codebg}
 \usepackage{hyperref}
 \usepackage{citation-style-language}
-%\cslsetup{style = ieee-wrexham_v7}
-%\addbibresource{references.bib}
+\cslsetup{style = ieee-wrexham_v7}
+\addbibresource{references.bib}
 
 % ---------- Custom commands -------------
 \makeatletter
@@ -119,7 +119,7 @@ The form which can be created by a company is at the start just a \textbf{static
 Which beers are selectable is also static. Beers can only be added by the CodeBrew team.
 
 \subsection{Initial resources}
-The project's human resources are 2 backend developer, 1 database engineer, 1 frontend developer, which is additionally the project owner.
+The project's human resources are 2 backend developer, 1 database engineer, 1 frontend developer, who is additionally the project owner.
 Every developer has access to one personal computer on which they will develop.
 GitHub was chosen as centralised git provider and kanban host (GitHub Project).
 
@@ -129,6 +129,129 @@ Every decision in terms of feature changes or time extensions  has to be approve
 Tasks on the kanbanboard are created by the project manager collaborative with the project team.
 The team is not allowed to create tasks without the knowledge of the project owner.
 
+\section{Feasibility Study}
+\subsection{Technically}
+\label{sec:fs_technically}
+This project is without any doubt technical achievable, because it is a simple web application with a database as persistent storage.
+Components like user management, forms and charts are nothing new in this field.
+
+\subsection{Time Constraints}
+As mentioned in \autoref{sec:fs_technically}, are only basic technologies and methods involved in this project.
+All anticipating developers are familiar with the concepts of these technologies, which should improve the learning rate immensely.
+Additionally, is the work split across all for developer so that the development should see a quick and steady progress.
+Following, should the given time (roughly 200h) be enough to create the first MVP.
+
+\subsection{Financially}
+The financial aspect is also small. Every developer works on its own personal or a from the university provided computer.
+Following, there will be no hardware costs.
+
+Components of the application are either self written or open source. Therefore, there will be no software costs either.
+
+The main cost will be the salaries. Each team member will be paid on an hourly basis.
+
+\subsection{Legal Issues}
+CodeBrew should not encounter any legal issues.
+
+The software retains only the email addresses of the customers to ascertain whether they have previously completed the feedback for a particular on-trade company.
+Feedback submitted will remain unassociated with any email address.
+
+Neither the on-trade company nor CodeBrew itself can identify which user submitted what specific feedback.
+
+The on-trade company provide limited information, including only an email address for login, a company name, a list of beers they serve and the type or value of the provided voucher.
+
+Since no personal data such as names, birthdates, religion, or gender is collected and the feedback is entirely anonymized, there should be no data protection concerns.
+
+\subsection{Market analysis}
+There are already a few applications on the market that provide similar functionality.
+
+\subsubsection{Competitor Analysis}
+\label{sec:competitor_analysis}
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{c|c|X}
+		\hline
+		\thead{Tool}           & \thead{Type}                         & \thead{Key Weakness for CodeBrew}      \\
+		\hline
+		\textbf{Typeform}      & General form builder                 & No voucher logic                       \\
+		\hline
+		\textbf{Jotform}       & General form builder                 & overkill for a 3-5 questions beer form \\
+		\hline
+		\textbf{Gravity Forms} & General form builder                 & No free tier; no reward logic          \\
+		\hline
+		\textbf{Brewlytics.ai} & Brewery loyalty + AI taste profiling & Targets breweries; AI; CRM             \\
+		\hline
+		\textbf{Perkstar}      & Pub loyalty (Wallet)                 & loyalty first; no beer rating          \\
+		\hline
+	\end{tabularx}
+	\caption[Competitor analysis]{Competitor analysis \cite{FormBuilderAI, JotformFreeOnline, GravityFormsBest, BrewlyticsAIBrewery, BestDigitalLoyalty}}
+	\label{tbl:compatitor_analysis}
+\end{table}
+
+The compatitors selected for this comparison are listed in \autoref{tbl:compatitor_analysis}.
+It shows that the tool is either a general form builder, so no specific for beer or more a loyalty app, which aims to keep customer.
+None of the apps are used to gather feedback from the customer and reward them afterwards with a voucher.
+
+\subsubsection{Market Gap}
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{0.9\textwidth}{c|c|c|c}
+		\hline
+		            & \thead{Form Builders} & \thead{Loyalty Tools} & \thead{CodeBrew}          \\
+		\hline
+		Domain      & Generic               & Brewery/taproom       & On-trade at a whole       \\
+		\hline
+		Core action & Build any form        & Loyalty/CRM           & Rate beer to get vouchers \\
+		\hline
+		Complexity  & Medium to High        & High                  & Low                       \\
+		\hline
+		Setup time  & Hours                 & Days-Weeks            & Minutes                   \\
+		\hline
+	\end{tabularx}
+	\caption{Market Gap comparison}
+	\label{tbl:market_gap}
+\end{table}
+
+The competitor analysis (\autoref{sec:competitor_analysis}) shows a gap in the market, which CodeBrew tries to fill.
+This gap, a \textbf{single-purpose, on-trade feedback tool}, is shown in \autoref{tbl:market_gap}.
+
+\subsubsection{Evidence of Market Need}
+\label{sec:market_need}
+
+The market need for CodeBrew is underpinned by several converging trends.
+\bigbreak
+
+First, QR-based interaction has become the norm in hospitality.
+QR code usage in the restaurant and hospitality sector grew by 323\% between 2021 and 2025, and 75\% of restaurants worldwide now use QR codes \cite{qrTiger2025}.
+The National Restaurant Association \cite{nra2025} reports that 57\% of consumers scanned a QR code at a restaurant in the past month.
+\bigbreak
+
+Second, structured customer feedback is a top priority in hospitality.
+Nearly 86\% of hospitality leaders rated gathering customer feedback as "vitally important," and 39\% made it a top transformation initiative \cite{metrigy2024}.
+\bigbreak
+
+Third, reward-based engagement clearly changes how customers act.
+Loyalty program members visit restaurants 20\% more frequently and spend 20\% more per check than non-members \cite{restroworks2025}.
+\bigbreak
+
+Fourth, the on-trade beer segment is large and structurally dominant.
+On-trade channels account for 56.4\% of European craft beer revenue in 2025, with pubs, bars, taprooms, and brewery-owned bars serving as the primary consumption and discovery environment \cite{imarc2025}.
+Germany alone commands 28.4\% of the European market \cite{imarc2025}.
+\bigbreak
+
+Taken together, these data points indicate a large, growing on-trade segment where QR-based interaction is established, feedback collection is prioritised, and voucher rewards are proven to drive repeat visits.
+Yet no purpose-built tool currently combines these elements for beer-specific feedback.
+
+\subsection{Conclusion}
+CodeBrew is feasible on all three axes.
+
+Technically, it is a standard web application with no unusual components.
+
+Financially, initial costs are limited to developer time, as all infrastructure and software are open source.
+
+From a market perspective, the competitor analysis (\autoref{sec:competitor_analysis}) shows no existing tool combines beer-specific feedback with immediate voucher rewards for on-trade venues, and the data in \autoref{sec:market_need} indicates a growing demand for exactly this.
+
+No technical, financial, or market barriers were identified that would prevent implementation.
+
 \section{Stakeholders}
 \subsection{Stakeholder Identification}
 Identifying stakeholders during the planning phase is essential to ensure that their requirements can be addressed in subsequent phases.
@@ -137,63 +260,64 @@ Identifying stakeholders during the planning phase is essential to ensure that t
 The following groups are identified as primary stakeholders as they are directly involved in the development or operation of the system.
 
 \begin{itemize}
-    \item \textbf{On-Trade Companies} are interested in customer feedback to optimise their beverage offering and attract new customers through vouchers.
-    They have a high influence on the application, as they represent the primary customers to whom the system is marketed. 
-    They should be involved in the development process to ensure their requirements are met.
-    \item \textbf{Bar patrons} are interested in a fast and straightforward feedback process. 
-    They have a high influence on the development, as the system will not be used if the process is flawed or overly complicated.
-    \item The \textbf{CodeBrew Development Team} is interested in meeting all requirements, establishing a clean system architecture, and developing a functional system. 
-    Meeting existing deadlines is also a key objective. They have a very high influence as they are responsible for managing scope, design, security, and technical implementation.
-    \item The \textbf{University Staff (Product Sponsor)} is interested in ensuring that students learn and adhere to systems engineering and project management methodologies. 
-    Furthermore, the goal is to produce a viable product with added value from the planning phase onward, while implementing a robust and secure system architecture. 
-    They have a very high influence on the project, as they define the specifications and acceptance criteria and perform the final evaluation of the project. 
-    They must be integrated into the development process.
+	\item \textbf{On-Trade Companies} are interested in customer feedback to optimise their beverage offering and attract new customers through vouchers.
+	      They have a high influence on the application, as they represent the primary customers to whom the system is marketed.
+	      They should be involved in the development process to ensure their requirements are met.
+	\item \textbf{Bar patrons} are interested in a fast and straightforward feedback process.
+	      They have a high influence on the development, as the system will not be used if the process is flawed or overly complicated.
+	\item The \textbf{CodeBrew Development Team} is interested in meeting all requirements, establishing a clean system architecture, and developing a functional system.
+	      Meeting existing deadlines is also a key objective. They have a very high influence as they are responsible for managing scope, design, security, and technical implementation.
+	\item The \textbf{University Staff (Product Sponsor)} is interested in ensuring that students learn and adhere to systems engineering and project management methodologies.
+	      Furthermore, the goal is to produce a viable product with added value from the planning phase onward, while implementing a robust and secure system architecture.
+	      They have a very high influence on the project, as they define the specifications and acceptance criteria and perform the final evaluation of the project.
+	      They must be integrated into the development process.
 \end{itemize}
 
 \subsubsection{Secondary Stakeholders}
 Parties that are only indirectly affected or involved in regulation must also be identified as secondary stakeholders.
 
 \begin{itemize}
-    \item \textbf{Legislators and Authorities} are interested in ensuring that personal data is processed lawfully and that regulations regarding youth protection are upheld. 
-    They have a high influence on the project, as it is crucial to ensure that legal requirements are met. Non-compliance can lead to severe legal consequences.
-    \item \textbf{Beverage Suppliers} are interested in knowing which varieties are most in demand. 
-    They currently have very low influence on the project, as they are not directly involved in the feedback process at this stage.
+	\item \textbf{Legislators and Authorities} are interested in ensuring that personal data is processed lawfully and that regulations regarding youth protection are upheld.
+	      They have a high influence on the project, as it is crucial to ensure that legal requirements are met. Non-compliance can lead to severe legal consequences.
+	\item \textbf{Beverage Suppliers} are interested in knowing which varieties are most in demand.
+	      They currently have very low influence on the project, as they are not directly involved in the feedback process at this stage.
 \end{itemize}
 
 \subsection{Engagement Strategy}
-The engagement strategy serves to determine how and how often the respective stakeholders are involved in the project's progression to ensure its success. 
+The engagement strategy serves to determine how and how often the respective stakeholders are involved in the project's progression to ensure its success.
 To this end, the identified stakeholders are categorised into the groups \textit{Manage Closely}, \textit{Keep Satisfied}, and \textit{Monitor}.
 
 \subsubsection{Manage Closely}
 These stakeholders have both high influence and high interest. They are critical to the success of the project and are actively involved in the development process.
 
 \begin{itemize}
-    \item \textbf{On-Trade Companies} will be involved early in the development process to meet customer expectations. 
-    For instance, operators can be consulted on designs for the dashboard and specific functions.
-    \item The \textbf{CodeBrew Development Team} must ensure continuous information exchange and good self-organisation. 
-    This is achieved through regular meetings with logbook documentation, task distribution via Kanban, and a clear distribution of roles.
-    \item The \textbf{Product Sponsor} must be included in the acceptance process through regular gate reviews and access to the project progress documentation.
+	\item \textbf{On-Trade Companies} will be involved early in the development process to meet customer expectations.
+	      For instance, operators can be consulted on designs for the dashboard and specific functions.
+	\item The \textbf{CodeBrew Development Team} must ensure continuous information exchange and good self-organisation.
+	      This is achieved through regular meetings with logbook documentation, task distribution via Kanban, and a clear distribution of roles.
+	\item The \textbf{Product Sponsor} must be included in the acceptance process through regular gate reviews and access to the project progress documentation.
 \end{itemize}
 
 \subsubsection{Keep Satisfied}
 These stakeholders are relevant to the project but have a more passive interest and are therefore not actively involved in the development process.
 
 \begin{itemize}
-    \item To provide \textbf{Bar patrons} with a pleasant user experience, the focus will be on a simple and intuitive user interface.
-    Additionally, the entire feedback process and subsequent rewards will be designed to be as uncomplicated as possible.
-    \item The requirements of \textbf{Legislators and Authorities} must be met through strict adherence to guidelines.
-    This can be ensured through age verification and the appropriate handling of personal data.
+	\item To provide \textbf{Bar patrons} with a pleasant user experience, the focus will be on a simple and intuitive user interface.
+	      Additionally, the entire feedback process and subsequent rewards will be designed to be as uncomplicated as possible.
+	\item The requirements of \textbf{Legislators and Authorities} must be met through strict adherence to guidelines.
+	      This can be ensured through age verification and the appropriate handling of personal data.
 \end{itemize}
 
 \subsubsection{Monitor}
 These stakeholders have low relevance at the current stage of the project. However, they should not be ignored, as they may become more important in the future.
 
 \begin{itemize}
-    \item \textbf{Beverage Suppliers} are not currently involved in the feedback process. 
-    They could, however, be integrated in the future, and market analyses could be provided to them. 
-    To facilitate this, the database architecture must be cleanly structured from the outset.
+	\item \textbf{Beverage Suppliers} are not currently involved in the feedback process.
+	      They could, however, be integrated in the future, and market analyses could be provided to them.
+	      To facilitate this, the database architecture must be cleanly structured from the outset.
 \end{itemize}
 
+\newpage
 \begingroup
 \setstretch{1.0}
 \hbadness=9999
