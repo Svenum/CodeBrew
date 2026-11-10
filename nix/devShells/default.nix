@@ -33,6 +33,9 @@ pkgs.mkShell {
           minted
           upquote
           makecell
+          xltabular
+          booktabs
+          ltablex
         ]
       ))
     ]
