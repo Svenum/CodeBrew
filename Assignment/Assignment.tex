@@ -30,6 +30,8 @@
 \setminted{fontsize=\normalsize, baselinestretch=1, bgcolor=codebg}
 \usepackage{hyperref}
 \usepackage{citation-style-language}
+\usepackage{xltabular}
+\usepackage{booktabs}
 %\cslsetup{style = ieee-wrexham_v7}
 %\addbibresource{references.bib}
 
@@ -193,6 +195,62 @@ These stakeholders have low relevance at the current stage of the project. Howev
     They could, however, be integrated in the future, and market analyses could be provided to them. 
     To facilitate this, the database architecture must be cleanly structured from the outset.
 \end{itemize}
+
+
+\subsection{Stakeholder Requirements}
+Following the identification of the stakeholders and the definition of the engagement strategy, 
+the specific requirements of the stakeholders are identified. 
+These are fundamental for identifying the system requirements and to ensure that the needs of the stakeholders are met. 
+The following Table \ref{tab:stakeholder_requirements} lists the corresponding requirements.
+{
+\renewcommand{\arraystretch}{1.7}
+\begin{xltabular}{\textwidth}{c p{2.5cm} p{4cm} X}
+
+\caption{Stakeholder Requirements}
+\label{tab:stakeholder_requirements} \\
+\toprule
+\textbf{No.} & \textbf{Stakeholder} & \textbf{Need} & \textbf{Requirement} \\ 
+\midrule
+\endfirsthead
+
+\caption{Stakeholder Requirements (Continued)} \\
+\toprule
+\textbf{No.} & \textbf{Stakeholder} & \textbf{Need} & \textbf{Requirement} \\ 
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+1 & On-Trade Companies & The operator requires a way to manage the product range. & 
+The system must provide an interface for the operator to flexibly input different types of beer into the system. \\
+2 & On-Trade Companies & The operator requires a way to evaluate feedback. & 
+The system must aggregate collected customer reviews per beer type and present them graphically to the operator. \\
+3 & On-Trade Companies & There must be protection against voucher misuse. & 
+The system must prevent multiple redemptions of vouchers by the same guest at the same location through blocking mechanisms. \\
+4 & Bar patrons & Guests require intuitive access to the application. & 
+The system must allow guests to open the feedback form directly via a QR code scan without prior registration. \\
+5 & Bar patrons & Guests should receive their rewards in a straightforward manner. & 
+The system must generate the voucher immediately after the feedback is submitted. \\
+6 & Bar patrons & An efficient rating system is required. & The system must allow guests to rate multiple beer types within a single session. \\
+7 & CodeBrew Development Team & A clean system architecture should be established. & 
+The system must feature a clear separation between frontend and backend, a normalised database design, and well-structured interfaces. \\
+8 & CodeBrew Development Team & Seamless and transparent collaboration is required. & 
+The project must be based on standardised workflows, including a unified development environment, version control strategy, and agile task tracking. \\
+9 & University Staff (Product Sponsor) & Evidence of the methods used in planning and development is required. & 
+The project must be documented without gaps through artefacts such as logs and UML diagrams. \\
+10 & University Staff (Product Sponsor) & A functional product is required for final evaluation. & 
+The system must be available as a working product at the end of the project, providing the promised features. \\
+11 & Legislators and Authorities & Youth protection regulations must be complied with. & 
+The system must implement an age verification check before the form can be accessed. \\
+12 & Legislators and Authorities & The system must be designed to be GDPR compliant. & 
+Appropriate data handling must be ensured through robust measures. \\
+13 & Beverage Suppliers & The system must be prepared for future market analyses. & 
+The database must be proactively structured so that aggregated exports regarding the popularity of various types can be generated in the future. \\
+\end{xltabular}
+}
+
+\end{document}
 
 \begingroup
 \setstretch{1.0}
