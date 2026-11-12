@@ -103,6 +103,51 @@
 \section{Introduction}
 
 \section{Project Charter}
+
+\subsection{Need and Expected Benefits}
+There were over 1800 breweries \cite{hampsonCAMRABrewersWarn2026} and 11.000 real ales in the UK \cite{smithBeerGuidePraises2015}.
+On-trade owners can analyse sales figures such as litres sold and which of their beverages get bought the most but without giving a reason what drives the customer to buy.
+In the UK pubs and bars often provide special beers for example different own-brand beers, and they have to rely on selling numbers and feedback word of mouth which often gets forgotten and doesn't reach the brewer or the on-trade owner.
+The problem of not knowing the exact criteria on how a customer decides upon and what they thought of the product after consuming it can't be concluded as easily.
+CodeBrew's website is enabling vendors and on-trade owners to analyse their sales, optimising them while giving the customer a reason to contribute.
+
+\subsection{Project Goal}
+The main goal of the project is to provide on-trade owners with a platform to collect customer feedback and use the resulting statistics to improve their product range while also giving their customers something back in return.
+CodeBrew provides on-trade owners with an outsourced website that lets them analyse customer feedback and preferences, either for their own use or in cooperation with their brewery suppliers.
+The platform also manages the feedback form for customers and ensures the secure handling of all data.
+Customers can receive one free beer voucher per seller for completing the survey.
+Their data and creation of voucher will securely be handled by CodeBrew so that the feedback giver's data stays anonymous to the seller and is handled by a neutral party.
+After submitting feedback, the customer receives a voucher code linked to their email address, which is the only personal data required.
+The code is displayed immediately on the website as a QR code.
+In the venue, staff scan the code and the system checks it against the redemption status in the database: the voucher is either accepted and marked as redeemed, or declined.
+
+\subsection{Project Objectives}
+
+\subsubsection{Website}
+The creation of a website with different subdomains.
+For the seller: providing insight on anonymized statistics and written customer feedback for their beer.
+For the customer a feedback form providing a beer survey template designed by CodeBrew specialized on beer while also being able to add more survey blocks if giving feedback for more than one bought beer is wanted.
+The beers will be chosen over a dropdown menu containing the seller's beers.
+The form will also request the guest's e-mail address for distribution and tracking of vouchers.
+The data will be stored in a fitting database accordingly.
+
+\subsubsection{Database}
+The team will design and implement a secure relational database consisting of three main components.
+
+\begin{itemize}
+	\item Creation of a secure database containing:
+	      \begin{itemize}
+		      \item On-trade owners data for login and managing their product palette
+		      \item A table for saving their feedback associated with the seller
+		      \item A table for the feedback givers email address and their voucher if already redeemed or not
+	      \end{itemize}
+\end{itemize}
+% TODO (Christoph): Infos zur Datenbank ergänzen
+
+\subsubsection{API}
+Fully functional connection to the database.
+% TODO (Sven / Maximilian): Infos zur API ergänzen
+
 \subsection{Scope}
 This Project aims to create the MVP (Minimum Valuable Product) of CodeBrew, which includes the features \textbf{company registration}, \textbf{company login}, \textbf{form creation}, \textbf{display of statistics}, \textbf{customer can fill out the form} and the \textbf{voucher generation}.
 Consequently, are all resources included, which are needed to achieve the functionality of these features (database, REST-API, webpage, ...).
@@ -124,6 +169,14 @@ Which beers are selectable is also static. Beers can only be added by the CodeBr
 The project's human resources are 2 backend developer, 1 database engineer, 1 frontend developer, who is additionally the project owner.
 Every developer has access to one personal computer on which they will develop.
 GitHub was chosen as centralised git provider and kanban host (GitHub Project).
+
+\subsection{Roles and Responsibilities}
+\begin{itemize}
+	\item \textbf{Alina Pollich:} Product Owner, Frontend, Protocol
+	\item \textbf{Sven Ziegler:} REST-API, Technical QA (Technical Quality Assurance Officer)
+	\item \textbf{Maximilian Leidl:} Frontend API / REST-API.
+	\item \textbf{Christoph Schabik:} Database.
+\end{itemize}
 
 \subsection{Authority of the project owner}
 The project management is part of the job of the project owner. The project owner will be supported by the project team.
@@ -196,7 +249,7 @@ None of the apps are used to gather feedback from the customer and reward them a
 \subsubsection{Market Gap}
 \begin{table}[H]
 	\centering
-	\begin{tabularx}{0.9\textwidth}{c|c|c|c}
+	\begin{tabular}{c|c|c|c}
 		\hline
 		            & \thead{Form Builders} & \thead{Loyalty Tools} & \thead{CodeBrew}          \\
 		\hline
@@ -208,7 +261,7 @@ None of the apps are used to gather feedback from the customer and reward them a
 		\hline
 		Setup time  & Hours                 & Days-Weeks            & Minutes                   \\
 		\hline
-	\end{tabularx}
+	\end{tabular}
 	\caption{Market Gap comparison}
 	\label{tbl:market_gap}
 \end{table}
@@ -372,6 +425,31 @@ Appropriate data handling must be ensured through robust measures. \\
 The database must be proactively structured so that aggregated exports regarding the popularity of various types can be generated in the future. \\
 \end{xltabular}
 }
+
+\subsection{Meetings}
+Meetings are conducted if requested by a team member.
+The product owner and team have decided to postpone the regular Monday live meetings as long as productivity and communication is constant and no major problems occur.
+The given circumstances enable the team to talk live about various topics when attending other educational courses over the week.
+This handling is used while in the conceptional and documentation beginning phase where the team first has to contribute on their own accord until the basics are written down.
+After this, regular jour fix is re-introduced to talk about progression and practical work.
+
+\subsection{GitHub}
+To not hold productivity, a central kanban board is used on GitHub to provide objective assignment and supervision.
+Minor questions and problems are purposefully not hold back to the next meeting, but discussed in either the team's messaging group or GitHub.
+The team manages additions of content via GitHub and contributes to the other people's sections via change requests on their own accord to hold up the quality and being on track with others.
+All changes are made through pull requests and reviewed by two other team members before being added to the main branch.
+This enables consistent quality, fewer errors, a transparent progress and collective responsibility.
+
+\subsection{WhatsApp}
+A team WhatsApp group exists to exchange quick questions, meeting appointments and further information.
+No major decisions are conducted over this communication method.
+Every major request of change or idea has to be contributed over the main central project platform, GitHub.
+
+\subsection{Live Meetings}
+Live meetings are appointed over the WhatsApp channel.
+The default time for live meetings is Monday from 2pm until approximately 5pm.
+The protocol logbook / Minutes Taker is Alina Pollich if she is not absent.
+The substitute is Sven Ziegler.
 
 \end{document}
 
