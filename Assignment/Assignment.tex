@@ -131,8 +131,13 @@ The beers will be chosen over a dropdown menu containing the seller's beers.
 The form will also request the guest's e-mail address for tracking of vouchers.
 The data will be stored in a fitting database accordingly.
 
-\subsubsection{Database}
-The team will design and implement a secure relational database consisting of three main components.
+\subsection{Database}
+To ensure reliable data storage and high data integrity, CodeBrew employs a relational database management system based on PostgreSQL. 
+The database is structured to ensure that data for On-Trade Companies, their assigned beer assortment, submitted customer feedback, 
+and generated vouchers are stored clearly and isolated from one another. In accordance with the defined MVP constraints, 
+the CodeBrew team will initially populate and maintain the location-specific beer data. Furthermore, 
+the database design incorporates core security and compliance requirements from the start, including password hashing for corporate accounts, 
+data minimisation in accordance with GDPR, and redemption flags to prevent the misuse or multiple redemption of vouchers.
 
 \begin{itemize}
 	\item Creation of a secure database containing:
