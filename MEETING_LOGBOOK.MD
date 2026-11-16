@@ -1,5 +1,40 @@
 # MEETINGS LOGBOOK
 
+## 16.11.26 (14:00–16:45)
+
+**Minutes taker:** Alina
+
+**Attendees:** Alina, Sven, Maxi, Christoph
+
+### GitHub
+- Fixing minor issues (pull requests etc.)
+
+### Specification
+
+#### Requirements
+- Need for more diagrams:
+    - ER diagram
+    - Database diagram
+    - Resource allocation diagram
+    - Architecture diagram
+        - Requirement clarification needed
+    - Sequence diagram
+- Need for a wireframe
+- Creation of a site map
+
+#### Agreed On
+- Agile working method
+- British English spelling
+- 
+
+#### To-Do
+- Create requirement tasks on the Kanban board
+- Create Kanban task for work methodology (Agile etc.)
+- look at Next Rest Framework for Rest and compare
+
+#### Changes
+- PostgreSQL for the database
+
 ## 12.10.26 (14:00–16:45)
 
 **Minutes taker:** Alina
