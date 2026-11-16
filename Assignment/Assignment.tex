@@ -130,6 +130,41 @@ Tasks on the kanbanboard are created by the project manager collaborative with t
 The team is not allowed to create tasks without the knowledge of the project owner.
 
 
+\section{Risk Assessment}
+\subsection{Initial Risk Register}
+This table maps out the initial risk potential for this project by describing and categorizing the risks, estimating their likelihood (L), impact (I) and severity (S) on the project.
+Likelihood and Impact each are rated in a numerical scale from 1 to 9, with 1-3 meaning unlikely to occur for likelihood and minor consequences for impact.
+From 4-6 there is a medium possibility for risk occurence as well as moderate consequences, for 7-9 its very likely occurence and severe impact.
+The severity of each risk is calculated by multiplying likelihood and impact, extending the scale to 1-81.
+It also includes risk owners and possible mitigation strategies.
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{0.9\textwidth}{|c|X|c|c|c|p{2cm}|p{3cm}|}
+		\hline
+		\thead{ID} & \thead{Risk\\Description} & \thead{L}  & \thead{I}    & \thead{S}  & \thead{Risk\\owners} & \thead{Risk\\Response}\\
+		\hline
+		R01  & Unauthorized access to developer accounts & 5 & 9 & 45 & Backend developer & Implement secure authentication \\
+		\hline
+		R02  & Unauthorized access to another company's data & 5 & 8 & 40 & Backend developer & Implement access control and ownership checks \\
+		\hline
+		R03  & Incorrect form creation and submission leads to corrupted data & 3 & 7 & 21 & Backend developer & Implement server-side input validation \\
+		\hline
+		R04  & Technical errors prevent application access & 2 & 8 & 16 & Development team & Implement error logging and handling measures \\
+		\hline
+		R05  & Loss of company or customer data  & 3 & 7 & 21 & Database engineer & Implement regular database backups \\
+		\hline
+		R06  & Cross-Site-Scripting (XSS): malicious scripts inserted into forms affect other users  & 5 & 7 & 35 & Frontend developer & Implement input validation, output encoding and Content Security Policy \\
+		\hline
+		R07  & Malicious database access through SQL injection  & 4 & 9 & 36 & Backend developer & 	Use parameterized queries and perform input validation \\
+		\hline
+		R08  & Exploitation of known vulnerabilities within third party libraries  & 6 & 8 & 48 & Development Team & Regularly scan dependancies and apply updates \\
+		\hline
+	\end{tabularx}
+	\caption{initial risk register}
+	\label{tbl:risk_register}
+\end{table}
+
 \begingroup
 \setstretch{1.0}
 \hbadness=9999
