@@ -184,6 +184,14 @@ Every decision in terms of feature changes or time extensions  has to be approve
 Tasks on the kanbanboard are created by the project owner collaborative with the project team.
 The team is not allowed to create tasks without the knowledge of the project owner.
 
+\subsection{Database}
+To ensure reliable data storage and high data integrity, CodeBrew employs a relational database management system based on PostgreSQL. 
+The database is structured to ensure that data for On-Trade Companies, their assigned beer assortment, submitted customer feedback, 
+and generated vouchers are stored clearly and isolated from one another. In accordance with the defined MVP constraints, 
+the CodeBrew team will initially populate and maintain the location-specific beer data. Furthermore, 
+the database design incorporates core security and compliance requirements from the start, including password hashing for corporate accounts, 
+data minimisation in accordance with GDPR, and redemption flags to prevent the misuse or multiple redemption of vouchers.
+
 \section{Feasibility Study}
 \subsection{Technically}
 \label{sec:fs_technically}
