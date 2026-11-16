@@ -30,8 +30,10 @@
 \setminted{fontsize=\normalsize, baselinestretch=1, bgcolor=codebg}
 \usepackage{hyperref}
 \usepackage{citation-style-language}
-%\cslsetup{style = ieee-wrexham_v7}
-%\addbibresource{references.bib}
+\usepackage{xltabular}
+\usepackage{booktabs}
+\cslsetup{style = ieee-wrexham_v7}
+\addbibresource{references.bib}
 
 % ---------- Custom commands -------------
 \makeatletter
@@ -101,10 +103,55 @@
 \section{Introduction}
 
 \section{Project Charter}
+
+\subsection{Need and Expected Benefits}
+There are over 1800 breweries \cite{hampsonCAMRABrewersWarn2026} and 11.000 different real ales in the UK \cite{smithBeerGuidePraises2015}.
+On-trade owners can analyse sales figures such as litres sold and which of their beverages get bought the most but without giving a reason what drives the customer to buy.
+In the UK pubs and bars often provide special beers for example different own-brand beers, and they have to rely on selling numbers and feedback word of mouth which often gets forgotten and doesn't reach the brewer or the on-trade owner.
+The problem of not knowing the exact criteria on how a customer decides upon and what they thought of the product after consuming it can't be concluded as easily.
+CodeBrew's website is enabling vendors and on-trade owners to analyse their sales, optimising them while giving the customer a reason to contribute.
+
+\subsection{Project Goal}
+The main goal of the project is to provide on-trade owners with a platform to collect customer feedback and use the resulting statistics to improve their product range while also giving their customers something back in return.
+CodeBrew provides on-trade owners with an outsourced website that lets them analyse customer feedback and preferences, either for their own use or in cooperation with their brewery suppliers.
+The platform also manages the feedback form for customers and ensures the secure handling of all data.
+Customers can receive one free beer voucher per seller for completing the survey.
+Their data and creation of voucher will securely be handled by CodeBrew so that the feedback giver's data stays anonymous to the seller and is handled by a neutral party.
+After submitting feedback, the customer receives a voucher code linked to their email address, which is the only personal data required.
+The code is displayed immediately on the website as a QR code.
+In the venue, staff scan the code and the system checks it against the redemption status in the database: the voucher is either accepted and marked as redeemed, or declined.
+
+\subsection{Project Objectives}
+
+\subsubsection{Website}
+The development of a website, which serves different objectives.
+For the seller: providing insight on anonymised statistics and written customer feedback for their beer.
+For the customer a feedback form providing a beer survey template designed by CodeBrew specialized on beer while also being able to add more survey blocks if giving feedback for more than one bought beer is wanted.
+The beers will be chosen over a dropdown menu containing the seller's beers.
+The form will also request the guest's e-mail address for tracking of vouchers.
+The data will be stored in a fitting database accordingly.
+
+\subsubsection{Database}
+The team will design and implement a secure relational database consisting of three main components.
+
+\begin{itemize}
+	\item Creation of a secure database containing:
+	      \begin{itemize}
+		      \item On-trade owners data for login and managing their product palette
+		      \item A table for saving their feedback associated with the seller
+		      \item A table for the customers email address and their voucher if already redeemed or not
+	      \end{itemize}
+\end{itemize}
+% TODO (#26):add database information
+
+\subsubsection{API}
+Fully functional connection to the database.
+% TODO (#27):add API information
+
 \subsection{Scope}
-This Project aims to create the MVP (Minimal Valuable Product) of CodeBrew, which includes the features \textbf{company registration}, \textbf{company login}, \textbf{form creation}, \textbf{display of statistics}, \textbf{customer can fill out the form} and the \textbf{voucher generation}.
-Consequently, are all resources included, which are needed to archive the functionality of these features (database, REST-API, webpage, ...).
-This MLP is also described by the following use case diagram \autoref{fig:use_case}.
+This Project aims to create the MVP (Minimum Valuable Product) of CodeBrew, which includes the features \textbf{company registration}, \textbf{company login}, \textbf{form creation}, \textbf{display of statistics}, \textbf{customer can fill out the form} and the \textbf{voucher generation}.
+Consequently, are all resources included, which are needed to achieve the functionality of these features (database, REST-API, webpage, ...).
+This MVP is also described by the following use case diagram \autoref{fig:use_case}.
 
 \begin{figure}[H]
 	\centering
@@ -119,16 +166,297 @@ The form which can be created by a company is at the start just a \textbf{static
 Which beers are selectable is also static. Beers can only be added by the CodeBrew team.
 
 \subsection{Initial resources}
-The project's human resources are 2 backend developer, 1 database engineer, 1 frontend developer, which is additionally the project owner.
+The project's human resources are 2 backend developer, 1 database engineer, 1 frontend developer, who is additionally the project owner.
 Every developer has access to one personal computer on which they will develop.
 GitHub was chosen as centralised git provider and kanban host (GitHub Project).
 
-\subsection{Authority of the project manager}
-The project management is part of the job of the project owner. The project manager will be supported by the project team.
+\subsection{Roles and Responsibilities}
+\begin{itemize}
+	\item \textbf{Alina Pollich:} Product Owner, Frontend, Protocol
+	\item \textbf{Sven Ziegler:} REST-API, Technical QA (Technical Quality Assurance Officer)
+	\item \textbf{Maximilian Leidl:} REST-API.
+	\item \textbf{Christoph Schabik:} Database.
+\end{itemize}
+
+\subsection{Authority of the project owner}
+The project management is part of the job of the project owner. The project owner will be supported by the project team.
 Every decision in terms of feature changes or time extensions  has to be approved by the project owner.
-Tasks on the kanbanboard are created by the project manager collaborative with the project team.
+Tasks on the kanbanboard are created by the project owner collaborative with the project team.
 The team is not allowed to create tasks without the knowledge of the project owner.
 
+\section{Feasibility Study}
+\subsection{Technically}
+\label{sec:fs_technically}
+This project is without any doubt technically achievable, because it is a simple web application with a database as persistent storage.
+Components like user management, forms and charts are nothing new in this field.
+
+\subsection{Time Constraints}
+As mentioned in \autoref{sec:fs_technically}, are only basic technologies and methods involved in this project.
+All anticipating developers are familiar with the concepts of these technologies, which should improve the learning rate immensely.
+Additionally, the work is split across all four developers so that the development should see a quick and steady progress.
+Following, the given time should (roughly 200h) be enough to create the first MVP.
+
+\subsection{Financially}
+The financial aspect is also small. Every developer works on their own personal or a from the university provided computer.
+Following, there will be no hardware costs.
+
+Components of the application are either self written or open source. Therefore, there will be no software costs either.
+
+The main cost will be the salaries. Each team member will be paid on an hourly basis.
+
+\subsection{Legal Issues}
+CodeBrew should not encounter any legal issues.
+
+The software retains only the email addresses of the customers to ascertain whether they have previously completed the feedback for a particular on-trade company.
+Feedback submitted will remain unassociated with any email address.
+
+Neither the on-trade company nor CodeBrew itself can identify which user submitted what specific feedback.
+
+The on-trade company provide limited information, including only an email address for login, a company name, a list of beers they serve and the type or value of the provided voucher.
+
+Since no personal data such as names, birthdates, religion, or gender is collected and the feedback is entirely anonymised, there should be no data protection concerns.
+
+\subsection{Market analysis}
+There are already a few applications on the market that provide similar functionality.
+
+\subsubsection{Competitor Analysis}
+\label{sec:competitor_analysis}
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{c|c|X}
+		\hline
+		\thead{Tool}           & \thead{Type}                         & \thead{Key Weakness for CodeBrew}      \\
+		\hline
+		\textbf{Typeform}      & General form builder                 & No voucher logic                       \\
+		\hline
+		\textbf{Jotform}       & General form builder                 & overkill for a 3-5 questions beer form \\
+		\hline
+		\textbf{Gravity Forms} & General form builder                 & No free tier; no reward logic          \\
+		\hline
+		\textbf{Brewlytics.ai} & Brewery loyalty + AI taste profiling & Targets breweries; AI; CRM             \\
+		\hline
+		\textbf{Perkstar}      & Pub loyalty (Wallet)                 & loyalty first; no beer rating          \\
+		\hline
+	\end{tabularx}
+	\caption[Competitor analysis]{Competitor analysis \cite{FormBuilderAI, JotformFreeOnline, GravityFormsBest, BrewlyticsAIBrewery, BestDigitalLoyalty}}
+	\label{tbl:competitor_analysis}
+\end{table}
+
+The competitors selected for this comparison are listed in \autoref{tbl:competitor_analysis}.
+It shows that the tools are either general form builders with no connection to beer, or loyalty-focused platforms designed to keep customers.
+None of the apps are used to gather feedback from the customer and reward them afterwards with a voucher.
+
+\subsubsection{Market Gap}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c|c|c}
+		\hline
+		            & \thead{Form Builders} & \thead{Loyalty Tools} & \thead{CodeBrew}          \\
+		\hline
+		Domain      & Generic               & Brewery/taproom       & On-trade at a whole       \\
+		\hline
+		Core action & Build any form        & Loyalty/CRM           & Rate beer to get vouchers \\
+		\hline
+		Complexity  & Medium to High        & High                  & Low                       \\
+		\hline
+		Setup time  & Hours                 & Days-Weeks            & Minutes                   \\
+		\hline
+	\end{tabular}
+	\caption{Market Gap comparison}
+	\label{tbl:market_gap}
+\end{table}
+
+The competitor analysis (\autoref{sec:competitor_analysis}) shows a gap in the market, which CodeBrew tries to fill.
+This gap, a \textbf{single-purpose, on-trade feedback tool}, is shown in \autoref{tbl:market_gap}.
+
+\subsubsection{Evidence of Market Need}
+\label{sec:market_need}
+
+The market need for CodeBrew is underpinned by several converging trends.
+\bigbreak
+
+First, QR-based interaction has become the norm in hospitality.
+QR code usage in the restaurant and hospitality sector grew by 323\% between 2021 and 2025, and 75\% of restaurants worldwide now use QR codes \cite{qrTiger2025}.
+The National Restaurant Association \cite{nra2025} reports that 57\% of consumers scanned a QR code at a restaurant in the past month.
+\bigbreak
+
+Second, structured customer feedback is a top priority in hospitality.
+Nearly 86\% of hospitality leaders rated gathering customer feedback as "vitally important," and 39\% made it a top transformation initiative \cite{metrigy2024}.
+\bigbreak
+
+Third, reward-based engagement clearly changes how customers act.
+Loyalty program members visit restaurants 20\% more frequently and spend 20\% more per check than non-members \cite{restroworks2025}.
+\bigbreak
+
+Fourth, the on-trade beer segment is large and structurally dominant.
+On-trade channels account for 56.4\% of European craft beer revenue in 2025, with pubs, bars, taprooms, and brewery-owned bars serving as the primary consumption and discovery environment \cite{imarc2025}.
+Germany alone commands 28.4\% of the European market \cite{imarc2025}.
+\bigbreak
+
+Taken together, these data points indicate a large, growing on-trade segment where QR-based interaction is established, feedback collection is prioritised, and voucher rewards are proven to drive repeat visits.
+Yet no purpose-built tool currently combines these elements for beer-specific feedback.
+
+\subsection{Conclusion}
+CodeBrew is feasible on all three axes.
+
+Technically, it is a standard web application with no unusual components.
+
+Financially, initial costs are limited to developer time, as all infrastructure and software are open source.
+
+From a market perspective, the competitor analysis (\autoref{sec:competitor_analysis}) shows no existing tool combines beer-specific feedback with immediate voucher rewards for on-trade venues, and the data in \autoref{sec:market_need} indicates a growing demand for exactly this.
+
+No technical, financial, or market barriers were identified that would prevent implementation.
+
+\section{Stakeholders}
+\subsection{Stakeholder Identification}
+Identifying stakeholders during the planning phase is essential to ensure that their requirements can be addressed in subsequent phases.
+
+\subsubsection{Primary Stakeholders}
+The following groups are identified as primary stakeholders as they are directly involved in the development or operation of the system.
+
+\begin{itemize}
+	\item \textbf{On-Trade Companies} are interested in customer feedback to optimise their beverage offering and attract new customers through vouchers.
+	      They have a high influence on the application, as they represent the primary customers to whom the system is marketed.
+	      They should be involved in the development process to ensure their requirements are met.
+	\item \textbf{Bar patrons} are interested in a fast and straightforward feedback process.
+	      They have a high influence on the development, as the system will not be used if the process is flawed or overly complicated.
+	\item The \textbf{CodeBrew Development Team} is interested in meeting all requirements, establishing a clean system architecture, and developing a functional system.
+	      Meeting existing deadlines is also a key objective. They have a very high influence as they are responsible for managing scope, design, security, and technical implementation.
+	\item The \textbf{University Staff (Product Sponsor)} is interested in ensuring that students learn and adhere to systems engineering and project management methodologies.
+	      Furthermore, the goal is to produce a viable product with added value from the planning phase onward, while implementing a robust and secure system architecture.
+	      They have a very high influence on the project, as they define the specifications and acceptance criteria and perform the final evaluation of the project.
+	      They must be integrated into the development process.
+\end{itemize}
+
+\subsubsection{Secondary Stakeholders}
+Parties that are only indirectly affected or involved in regulation must also be identified as secondary stakeholders.
+
+\begin{itemize}
+	\item \textbf{Legislators and Authorities} are interested in ensuring that personal data is processed lawfully and that regulations regarding youth protection are upheld.
+	      They have a high influence on the project, as it is crucial to ensure that legal requirements are met. Non-compliance can lead to severe legal consequences.
+	\item \textbf{Beverage Suppliers} are interested in knowing which varieties are most in demand.
+	      They currently have very low influence on the project, as they are not directly involved in the feedback process at this stage.
+\end{itemize}
+
+\subsection{Engagement Strategy}
+The engagement strategy serves to determine how and how often the respective stakeholders are involved in the project's progression to ensure its success.
+To this end, the identified stakeholders are categorised into the groups \textit{Manage Closely}, \textit{Keep Satisfied}, and \textit{Monitor}.
+
+\subsubsection{Manage Closely}
+These stakeholders have both high influence and high interest. They are critical to the success of the project and are actively involved in the development process.
+
+\begin{itemize}
+	\item \textbf{On-Trade Companies} will be involved early in the development process to meet customer expectations.
+	      For instance, operators can be consulted on designs for the dashboard and specific functions.
+	\item The \textbf{CodeBrew Development Team} must ensure continuous information exchange and good self-organisation.
+	      This is achieved through regular meetings with logbook documentation, task distribution via Kanban, and a clear distribution of roles.
+	\item The \textbf{Product Sponsor} must be included in the acceptance process through regular gate reviews and access to the project progress documentation.
+\end{itemize}
+
+\subsubsection{Keep Satisfied}
+These stakeholders are relevant to the project but have a more passive interest and are therefore not actively involved in the development process.
+
+\begin{itemize}
+	\item To provide \textbf{Bar patrons} with a pleasant user experience, the focus will be on a simple and intuitive user interface.
+	      Additionally, the entire feedback process and subsequent rewards will be designed to be as uncomplicated as possible.
+	\item The requirements of \textbf{Legislators and Authorities} must be met through strict adherence to guidelines.
+	      This can be ensured through age verification and the appropriate handling of personal data.
+\end{itemize}
+
+\subsubsection{Monitor}
+These stakeholders have low relevance at the current stage of the project. However, they should not be ignored, as they may become more important in the future.
+
+\begin{itemize}
+	\item \textbf{Beverage Suppliers} are not currently involved in the feedback process.
+	      They could, however, be integrated in the future, and market analyses could be provided to them.
+	      To facilitate this, the database architecture must be cleanly structured from the outset.
+\end{itemize}
+
+
+\subsection{Stakeholder Requirements}
+Following the identification of the stakeholders and the definition of the engagement strategy, 
+the specific requirements of the stakeholders are identified. 
+These are fundamental for identifying the system requirements and to ensure that the needs of the stakeholders are met. 
+The following Table \ref{tab:stakeholder_requirements} lists the corresponding requirements.
+{
+\renewcommand{\arraystretch}{1.7}
+\begin{xltabular}{\textwidth}{c p{2.5cm} p{4cm} X}
+
+\caption{Stakeholder Requirements}
+\label{tab:stakeholder_requirements} \\
+\toprule
+\textbf{No.} & \textbf{Stakeholder} & \textbf{Need} & \textbf{Requirement} \\ 
+\midrule
+\endfirsthead
+
+\caption{Stakeholder Requirements (Continued)} \\
+\toprule
+\textbf{No.} & \textbf{Stakeholder} & \textbf{Need} & \textbf{Requirement} \\ 
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+1 & On-Trade Companies & The operator requires their specific beer assortment to be available for customer feedback. & 
+The system must provide a pre-configured, specific list of beer types in the feedback form based on prior arrangement. \\
+2 & On-Trade Companies & The operator requires a way to evaluate feedback. & 
+The system must aggregate collected customer reviews per beer type and present them graphically to the operator. \\
+3 & On-Trade Companies & There must be protection against voucher misuse. & 
+The system must prevent multiple redemptions of vouchers by the same guest at the same location through blocking mechanisms. \\
+4 & Bar patrons & Guests require intuitive access to the application. & 
+The system must allow guests to open the feedback form directly via a QR code scan without prior registration. \\
+5 & Bar patrons & Guests should receive their rewards in a straightforward manner. & 
+The system must generate the voucher immediately after the feedback is submitted. \\
+6 & Bar patrons & An efficient rating system is required. & The system must allow guests to rate multiple beer types within a single session. \\
+7 & CodeBrew Development Team & A clean system architecture should be established. & 
+The system must feature a clear separation between frontend and backend, a normalised database design, and well-structured interfaces. \\
+8 & CodeBrew Development Team & Seamless and transparent collaboration is required. & 
+The project must be based on standardised workflows, including a unified development environment, version control strategy, and agile task tracking. \\
+9 & University Staff (Product Sponsor) & Evidence of the methods used in planning and development is required. & 
+The project must be documented without gaps through artefacts such as logs and UML diagrams. \\
+10 & University Staff (Product Sponsor) & A functional product is required for final evaluation. & 
+The system must be available as a working product at the end of the project, providing the promised features. \\
+11 & Legislators and Authorities & Youth protection regulations must be complied with. & 
+The system must implement an age verification check before the form can be accessed. \\
+12 & Legislators and Authorities & The system must be designed to be GDPR compliant. & 
+Appropriate data handling must be ensured through robust measures. \\
+13 & Beverage Suppliers & The system must be prepared for future market analyses. & 
+The database must be proactively structured so that aggregated exports regarding the popularity of various types can be generated in the future. \\
+\end{xltabular}
+}
+
+\section{Communication}
+
+\subsection{Meetings}
+Meetings are conducted if requested by a team member.
+The product owner and team have decided to postpone the regular Monday live meetings as long as productivity and communication is constant and no major problems occur.
+The given circumstances enable the team to talk live about various topics when attending other educational courses over the week.
+This handling is used while in the conceptional and documentation beginning phase where the team first has to contribute on their own accord until the basics are written down.
+After this, regular jour fix is re-introduced to talk about progression and practical work.
+
+\subsection{GitHub}
+To not hold productivity, a central kanban board is used on GitHub to provide objective assignment and supervision.
+The board is only utilised for tracking who is currently working on which task and what the current states of the tasks are, it is not used to give the diffrent tasks diffrent weights.
+States are TODO, In Progress, Documentation, Review, Done.
+Minor questions and problems are purposefully not hold back to the next meeting, but discussed in either the team's messaging group or GitHub.
+The team manages additions of content via GitHub and contributes to the other people's sections via change requests on their own accord to hold up the quality and being on track with others.
+All changes are made through pull requests and reviewed by two other team members before being added to the main branch.
+This enables consistent quality, fewer errors, a transparent progress and collective responsibility.
+
+\subsection{WhatsApp}
+A team WhatsApp group exists to exchange quick questions, meeting appointments and further information.
+No major decisions are conducted over this communication method.
+Every major request of change or idea has to be contributed over the main central project platform, GitHub.
+
+\subsection{Live Meetings}
+Live meetings are appointed over the WhatsApp channel.
+The default time for live meetings is Monday from 2pm until approximately 5pm.
+The protocol logbook / Minutes Taker is Alina Pollich if she is not absent.
+The substitute is Sven Ziegler.
+
+
+\newpage
 
 \section{Risk Assessment}
 \subsection{Initial Risk Register}

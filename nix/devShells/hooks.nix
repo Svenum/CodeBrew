@@ -8,7 +8,6 @@
     enable = true;
     extraPackages = [ pkgs.nodejs ];
     settings = {
-      binPath = "./node_modules/@biomejs/biome/bin/biome";
       configPath = "./biome.json";
       write = true;
     };
