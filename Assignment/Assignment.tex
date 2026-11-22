@@ -454,8 +454,8 @@ The substitute is Sven Ziegler.
 
 \subsection{Language}
 The language utilised for this application is TypeScript.
-It was selected as the framework used (NextJS \cite{NextjsVercelReact}) only supports JavaScript and TypeScript.
-JavaScript was rejected as it is not type save and type safety will prevent a lot of implementation flaws.
+It was selected as the framework used in this project (NextJS \cite{NextjsVercelReact}) only supports JavaScript and TypeScript.
+JavaScript was rejected as it is not type safe and type safety will prevent a lot of implementation flaws.
 This thesis is supported by a study analysing 729 projects from GitHub \cite{rayLargeScaleStudy2014}.
 
 \subsection{System Architecture}
@@ -478,7 +478,7 @@ Additionally, does it provide for future improvements of the application (after 
 The database used to store all needed data will be PostgreSQL.
 It will be accessed by the backend through the Object-Relation Mapping (ORM) drizzle \cite{DrizzleORMNext}.
 Drizzle was selected as it provides a native integration in NextJS and Auth.js provide an adapter for it.
-This way all three components (database, backend and authentication provider) fit seamless together.
+This way all three components (database, backend and authentication provider) fit seamlessly together.
 
 \bigbreak
 The communication between frontend, backend and Auth.js will be done by internal \ts{'use server'} components.
