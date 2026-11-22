@@ -15,8 +15,23 @@
   gen-pdf = {
     enable = true;
     name = "gen-pdf";
-    entry = "latexmk -cd -lualatex";
+    entry = "latexmk -cd -lualatex -shell-escape -interaction=nonstopmode";
     language = "system";
+    extraPackages = [
+      (pkgs.texlive.withPackages (
+        texPkgs: with texPkgs; [
+          scheme-medium
+          citation-style-language
+          luatex
+          minted
+          upquote
+          makecell
+          xltabular
+          booktabs
+          ltablex
+        ]
+      ))
+    ];
     pass_filenames = true;
     files = "\\.tex$";
   };
