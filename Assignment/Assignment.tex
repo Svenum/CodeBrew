@@ -131,25 +131,21 @@ The beers will be chosen over a dropdown menu containing the seller's beers.
 The form will also request the guest's e-mail address for tracking of vouchers.
 The data will be stored in a fitting database accordingly.
 
-\subsubsection{Database}
-The team will design and implement a secure relational database consisting of three main components.
+\subsection{Database}
+To ensure reliable data storage and high data integrity, CodeBrew employs a relational database management system based on PostgreSQL. 
+The database is structured to ensure that data for On-Trade Companies, their assigned beer assortment, submitted customer feedback, 
+and generated vouchers are stored clearly. In accordance with the defined MVP constraints, 
+the CodeBrew team will initially populate and maintain the location-specific beer data. Furthermore, 
+the database design incorporates core security and compliance requirements from the start, including password hashing for corporate accounts, 
+data minimisation in accordance with GDPR, and redemption flags to prevent the misuse or multiple redemption of vouchers.
 
-\begin{itemize}
-	\item Creation of a secure database containing:
-	      \begin{itemize}
-		      \item On-trade owners data for login and managing their product palette
-		      \item A table for saving their feedback associated with the seller
-		      \item A table for the customers email address and their voucher if already redeemed or not
-	      \end{itemize}
-\end{itemize}
-% TODO (#26):add database information
 
 \subsubsection{API}
 Fully functional connection to the database.
 % TODO (#27):add API information
 
 \subsection{Scope}
-This Project aims to create the MVP (Minimum Valuable Product) of CodeBrew, which includes the features \textbf{company registration}, \textbf{company login}, \textbf{form creation}, \textbf{display of statistics}, \textbf{customer can fill out the form} and the \textbf{voucher generation}.
+This Project aims to create the MVP (Minimum Viable Product) of CodeBrew, which includes the features \textbf{company registration}, \textbf{company login}, \textbf{form creation}, \textbf{display of statistics}, \textbf{customer can fill out the form} and the \textbf{voucher generation}.
 Consequently, are all resources included, which are needed to achieve the functionality of these features (database, REST-API, webpage, ...).
 This MVP is also described by the following use case diagram \autoref{fig:use_case}.
 
