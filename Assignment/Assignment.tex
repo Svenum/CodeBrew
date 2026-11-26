@@ -29,11 +29,27 @@
 \usepackage{minted}
 \setminted{fontsize=\normalsize, baselinestretch=1, bgcolor=codebg}
 \usepackage{hyperref}
-\usepackage{citation-style-language}
 \usepackage{xltabular}
 \usepackage{booktabs}
-\cslsetup{style = ieee-wrexham_v7}
+\usepackage{csquotes}
+
+\usepackage[style=ieee]{biblatex}
+\usepackage{xurl}
 \addbibresource{references.bib}
+\setlength{\bibhang}{0pt}
+\defbibenvironment{bibliography}
+  {\list
+     {}
+     {\setlength{\leftmargin}{\bibhang}%
+      \setlength{\itemindent}{-\leftmargin}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item
+   \printtext[labelnumberwidth]{%
+     \printfield{labelprefix}%
+      \printfield{labelnumber}}%
+   \addspace}
 
 % ---------- Custom commands -------------
 \makeatletter

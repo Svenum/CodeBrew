@@ -18,10 +18,10 @@
     entry = "latexmk -cd -lualatex -shell-escape -interaction=nonstopmode";
     language = "system";
     extraPackages = [
+      pkgs.biber
       (pkgs.texlive.withPackages (
         texPkgs: with texPkgs; [
           scheme-medium
-          citation-style-language
           luatex
           minted
           upquote
@@ -29,6 +29,10 @@
           xltabular
           booktabs
           ltablex
+          biblatex
+          biblatex-ieee
+          xurl
+          csquotes
         ]
       ))
     ];
