@@ -147,7 +147,7 @@ Fully functional connection to the database.
 % TODO (#27):add API information
 
 \subsection{Scope}
-This Project aims to create the MVP (Minimum Valuable Product) of CodeBrew, which includes the features \textbf{company registration}, \textbf{company login}, \textbf{form creation}, \textbf{display of statistics}, \textbf{customer can fill out the form} and the \textbf{voucher generation}.
+This Project aims to create the MVP (Minimum Viable Product) of CodeBrew, which includes the features \textbf{company registration}, \textbf{company login}, \textbf{form creation}, \textbf{display of statistics}, \textbf{customer can fill out the form} and the \textbf{voucher generation}.
 Consequently, are all resources included, which are needed to achieve the functionality of these features (database, webpage, ...).
 This MVP is also described by the following use case diagram \autoref{fig:use_case}.
 
@@ -481,13 +481,51 @@ Drizzle was selected as it provides a native integration in NextJS and Auth.js p
 This way all three components (database, backend and authentication provider) fit seamlessly together.
 
 \bigbreak
-The communication between frontend, backend and Auth.js will be done by internal \ts{'use server'} components.
+The communication between frontend, backend and Auth.js will employ internal \ts{'use server'} components.
 
 \bigbreak
 The user will access the application via the browser utilising HTTPS.
 
-\newpage
+\subsection{Sitemap}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{sitemap.drawio.png}
+	\caption{Sitemap for the CodeBrew application}
+	\label{fig:sitemap}
+\end{figure}
 
+The sitemap (refer to \autoref{fig:sitemap}) illustrates the different paths within the web-application.
+The green and blue paths are publically reachable, with the difference that the blue paths are used to authenticate.
+Every yellow path needs an authenticated session to be accessed.
+The red paths are just for separation and do not have any data on it.
+What each path will be for is described in \autoref{tbl:sitemap}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l | p{10.5cm}}
+		\hline
+		\thead{Path}              & \thead{Description}                                                                              \\
+		\hline
+		\ts{/}                    & Home page of CodeBrew, with information about the product.                                       \\
+		\hline
+		\ts{/register}            & Page to register a new company.                                                                  \\
+		\hline
+		\ts{/login}               & Login page for companies.                                                                        \\
+		\hline
+		\ts{/[company]}           & Every company becomes a distinct entity where its database ID will be employed as an identifier. \\
+		\hline
+		\ts{/[company]/dashboard} & The dashboard site, where the companies can view their charts.                                   \\
+		\hline
+		\ts{/[company]/settings}  & Settings page to change company properties and the form.                                         \\
+		\hline
+		\ts{/[company]/form}      & Form page where the on-trade customers can submit their feedback.                                \\
+		\hline
+	\end{tabular}
+	\caption{Descriptions for each path of the CodeBrew application}
+	\label{tbl:sitemap}
+\end{table}
+
+\newpage
 \begingroup
 \setstretch{1.0}
 \hbadness=9999
