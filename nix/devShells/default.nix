@@ -25,19 +25,6 @@ pkgs.mkShell {
       zsh
       bun
       nodejs
-      (texlive.withPackages (
-        texPkgs: with texPkgs; [
-          scheme-medium
-          citation-style-language
-          luatex
-          minted
-          upquote
-          makecell
-          xltabular
-          booktabs
-          ltablex
-        ]
-      ))
     ]
     ++ enabledPackages;
 }
