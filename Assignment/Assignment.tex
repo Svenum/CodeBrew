@@ -496,6 +496,8 @@ The user will access the application via the browser utilising HTTPS.
 
 The sitemap (refer to \autoref{fig:sitemap}) illustrates the different paths within the web-application.
 The green and blue paths are publically reachable, with the difference that the blue paths are used to authenticate.
+Purple routes require a token to access.
+This token will be created after successfully submitting a form.
 Every yellow path needs an authenticated session to be accessed.
 The red paths are just for separation and do not have any data on it.
 What each path will be for is described in \autoref{tbl:sitemap}.
@@ -519,6 +521,8 @@ What each path will be for is described in \autoref{tbl:sitemap}.
 		\ts{/[company]/settings}  & Settings page to change company properties and the form.                                         \\
 		\hline
 		\ts{/[company]/form}      & Form page where the on-trade customers can submit their feedback.                                \\
+		\hline
+		\ts{/[company]/voucher}   & Page which displays the voucher after successfully submitting a form.                            \\
 		\hline
 	\end{tabular}
 	\caption{Descriptions for each path of the CodeBrew application}
