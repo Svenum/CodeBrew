@@ -32,6 +32,7 @@
 \usepackage{xltabular}
 \usepackage{booktabs}
 \usepackage{csquotes}
+\usepackage{pdflscape}
 
 \usepackage[style=ieee]{biblatex}
 \usepackage{xurl}
@@ -67,6 +68,7 @@
 \makeatother
 
 \newcommand{\ts}[1]{\mintinline{typescript}{#1}}
+\newcommand{\sql}[1]{\mintinline{sql}{#1}}
 
 % ---------- Document variables ----------
 \newcommand{\myname}{Christoph Schabik, Sven Ziegler, Maximilian Leidl, Alina Pollich}
@@ -550,6 +552,43 @@ What each path will be for is described in \autoref{tbl:sitemap}.
 	\caption{Descriptions for each path of the CodeBrew application}
 	\label{tbl:sitemap}
 \end{table}
+
+\subsection{Sequence diagrams}
+\subsubsection{Login}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{sequence_login.drawio.png}
+	\caption{Sequence diagram for the login flow}
+	\label{fig:sequence_login}
+\end{figure}
+The sequence diagram (refer to \autoref{fig:sequence_login}) illustrates the login flow of a (on-trade) user.
+The involved components are the user, their browser and the CodeBrew website employing Auth.js, Drizzle ORM and PostgreSQL.
+
+Initially has the user to navigate to the CodeBrew login page \code{/login} in the browser.
+The browser thens ends a GET request to /login, which should be responded with a HTTP code 200 and the site data.
+The data containing the login page then gets rendered and displayed by the browser to the user.
+
+Now can the user enter its credentials, email and password, into the form.
+As the data gets submited the browser sends it with a POST request to \code{/login}.
+The website passes this information then to the backend, in this case to Auth.js.
+
+Auth.js passes then the user information to Drizzle utilising the function \linebreak \ts{db.query.users.findFirst({where: eq(users.email, email)})}.
+Subsequently, Drizzle prepares an SQL statement (\sql{SELECT * FROM users WHERE email = $1 LIMIT 1;}) and queries the PostgreSQL database, which yields either a row containing the user information or \sql{NONE} if no user is found.
+
+This result is then casted to either a \ts{User} object or \ts{undefined}.
+
+If a user was found, the user provided password is compared with the store password hash employing the function \ts{bcrypt.compare(password, user.password_hash)}.
+Is the password valid, creates Auth.js a JWT session token and sends it to the website.
+The website, subsequently, forwards this token as cookie to the browser.
+
+The browser then redirects to \code{/[company]/dashboard} and sends an HTTP GET request back to the website.
+The site data will be received as response.
+\code{/[company]/dashboard} will be rendered and displayed by the browser to the user.
+
+Is the password incorrect will Auth.js raise an error and the website sends an HTTP 401 (unauthorised) back to the browser which then displays the error message to the user.
+
+When no user was found utilising the provided email raises Auth.js an error which gets generalised and forwarded to the browser.
+Lastly displays the browser the error message to the user.
 
 \newpage
 \begingroup

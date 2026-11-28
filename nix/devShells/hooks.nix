@@ -33,6 +33,7 @@
           biblatex-ieee
           xurl
           csquotes
+          pdflscape
         ]
       ))
     ];
